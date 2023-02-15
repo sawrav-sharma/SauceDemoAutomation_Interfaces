@@ -20,3 +20,18 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+- task: AD-EmailReport@1
+  inputs:
+    sendMailConditionConfig: 'Always'
+    subject: '[{environmentStatus}] {passPercentage} tests passed in $(Release.EnvironmentName) stage for $(Build.BuildNumber)'
+    subject: '[{environmentStatus}] {passPercentage} tests passed in $(Release.EnvironmentName) stage for $(Build.BuildNumber)'
+    includeInToSectionStr: '1, 2, 3, 4'
+    fromAddress: 'saurav.sharma@infostride.com'
+    toAddress: 'jaganpreet@infostride.com'
+    defaultDomain: 'microsoft.com'
+    includeResultsStr: '1, 2'
+    groupTestResultsBy: 'run'
+    includeCommits: true
+    maxTestFailuresToShow: '500'
+    includeOthersInTotal: true
+    usePreviousEnvironment: false
