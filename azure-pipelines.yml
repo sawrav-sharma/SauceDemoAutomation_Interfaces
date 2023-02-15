@@ -24,7 +24,6 @@ steps:
   inputs:
     sendMailConditionConfig: 'Always'
     subject: '[{environmentStatus}] {passPercentage} tests passed in $(Release.EnvironmentName) stage for $(Build.BuildNumber)'
-    subject: '[{environmentStatus}] {passPercentage} tests passed in $(Release.EnvironmentName) stage for $(Build.BuildNumber)'
     includeInToSectionStr: '1, 2, 3, 4'
     fromAddress: 'saurav.sharma@infostride.com'
     toAddress: 'jaganpreet@infostride.com'
