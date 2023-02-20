@@ -24,6 +24,11 @@ steps:
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/TEST-*.xml'
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: Reports/htmlReportFolder
+    artifactName: HtmlReport
+
 - task: AD-EmailReport@1
   inputs:
     sendMailConditionConfig: 'Always'
