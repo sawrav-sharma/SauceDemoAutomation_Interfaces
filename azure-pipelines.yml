@@ -29,20 +29,14 @@ steps:
   inputs:
     pathToPublish: Reports/htmlReportFolder
     artifactName: HtmlReport
-
-- task: AD-EmailReport@1
+- task: SendEmail@1
   inputs:
-    sendMailConditionConfig: 'Always'
-    subject: '[{environmentStatus}] {passPercentage} tests passed in $(Release.EnvironmentName) stage for $(Build.BuildNumber)'
-    fromAddress: 'saurav.sharma@infostride.com'
-    toAddress: 'jaganpreet@infostride.com'
-    defaultDomain: 'microsoft.com'
-    includeResultsStr: '1, 2'
-    groupTestResultsBy: 'run'
-    includeCommits: true
-    maxTestFailuresToShow: '15'
-    includeOthersInTotal: false
-    usePreviousEnvironment: false
+    To: 'ankit.kumar@infostride.com'
+    From: 'saurav.sharma@infostride.com'
+    Subject: 'Report'
+    BodyAsHtml: false
+    AddAttachment: true
+    Attachment: './Reports/myReport.html'
 - task: PublishAllureReport@1
   inputs:
     reportDir: '$(AllureReportDirectory)'
