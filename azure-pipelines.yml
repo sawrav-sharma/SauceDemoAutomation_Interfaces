@@ -20,6 +20,7 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+    
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
@@ -42,3 +43,7 @@ steps:
     maxTestFailuresToShow: '15'
     includeOthersInTotal: false
     usePreviousEnvironment: false
+- task: PublishAllureReport@1
+  inputs:
+    reportDir: '$(AllureReportDirectory)'
+  
