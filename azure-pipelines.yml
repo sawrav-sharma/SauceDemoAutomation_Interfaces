@@ -25,10 +25,6 @@ steps:
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/TEST-*.xml'
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathToPublish: Reports/htmlReportFolder
-    artifactName: HtmlReport
 - task: SendEmail@1
   inputs:
     To: 'ankit.kumar@infostride.com'
@@ -37,7 +33,3 @@ steps:
     BodyAsHtml: false
     AddAttachment: true
     Attachment: './Reports/myReport.html'
-- task: PublishAllureReport@1
-  inputs:
-    reportDir: '$(AllureReportDirectory)'
-  
